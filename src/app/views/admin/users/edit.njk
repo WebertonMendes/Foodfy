@@ -1,0 +1,32 @@
+{% extends "../admin-layout.njk" %}
+
+{% block title %}
+    <title>Foodfy - Editar Usuário</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/admin.css">
+    <link rel="stylesheet" href="/styles/admin-users.css">
+    <link rel="stylesheet" href="/styles/messages.css">
+{% endblock %}
+
+{% block content %}
+    <section class="top-view">
+        <h2>Atualizar usuário</h2>
+        <div class="edit-buttons">
+            <form id="form-delete" method="POST" action="/admin/users/{{ user.id }}?_method=DELETE">
+                <input type="hidden" name="id" value="{{ user.id }}">
+            </form>
+            
+            <button form="form-delete" class="default-btn" id="btn-delete" type="submit" onclick = "return confirm ('Tem certeza de que deseja excluir a receita?')">Deletar</button>
+            <button form="putForm" class="default-btn" type="submit">Salvar usuário</button>
+        </div>
+    </section>
+
+    <form id="putForm" class="add-user" method="POST" action="/admin/users/{{ user.id }}?_method=PUT">
+        {% include './fields.njk' %}
+        <input type="hidden" name="id" value="{{ user.id }}">
+    </form>
+{% endblock %}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <title>Foodfy - 404 Page not found</title>
+    <link rel="icon" href="/assets/favicon.png"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/not-found.css">
+  </head>
+
+  <body id="not-found">
+    <div class="page-not-found">
+      <h1>PAGE NOT FOUND</h1>
+
+      <div class="button">
+        <a href="#" class="back" onclick="history.back()">Voltar</a>
+      </div>
+      
+      <div>
+        <script src="/js/lottie.min.js"></script>
+        <script>
+            const element = document.querySelector('.page-not-found')
+
+            lottie.loadAnimation({
+                container: element,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: '/assets/404.json'
+            })
+        </script>
+      </div>
+  </body>
+</html>

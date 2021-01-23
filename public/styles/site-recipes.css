@@ -1,0 +1,120 @@
+/* Recipes List in Grid View */
+.grid-recipes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+
+  margin-bottom: 2rem;
+}
+
+.grid-recipes .recipe a {
+  cursor: pointer;
+  max-height: 20rem;
+}
+
+.grid-recipes .recipe a:hover {
+  text-decoration: underline;
+  color: var(--secondary-font-color);
+}
+
+.grid-recipes .recipe-image {
+  height: 14rem;
+  border-radius: 1.5rem;
+
+  transition: 600ms;
+}
+
+.grid-recipes .recipe-image:hover {
+  filter: brightness(80%);
+}
+
+.grid-recipes h3 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  color: var(--primary-font-color);
+}
+
+.grid-recipes p {
+  color: var(--secondary-font-color);
+}
+
+/* Pagination */
+.recipes-container {
+  display: flex;
+  flex-direction: column;
+}
+  
+.pagination {
+    margin: 2.8rem auto 0 auto;
+}
+  
+.pagination a,
+.pagination span {
+    color: #fff;
+    text-decoration: none;
+    
+    background-color: var(--primary-color);
+    padding: 1rem;
+    margin-right: 1rem;
+}
+  
+.pagination a:hover {
+    background-color: var(--secondary-color);
+    transition: 400ms;
+}
+  
+.button-form {
+    background: var(--primary-color);
+    margin: .5rem 0;
+    padding: .8rem 1.6rem;
+    border-radius: .4rem;
+    
+    color: white;
+}
+
+/* Show Details Recipe */
+main ul.site-ul {
+  margin-left: 2rem;
+}
+
+main .details .details-button p {
+  font-size: 1.2rem;
+  color: #999;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  margin-left: .8rem;
+
+  cursor: pointer;
+  transition: 1s;
+}
+
+main .details .details-button p:hover {
+  text-decoration: underline;
+}
+  
+/* Buttons Show and Hide */
+section.recipe-ingredients {
+  display: block;
+}
+
+section.hide.recipe-ingredients {
+  display: none;
+}
+
+section.recipe-preparation {
+  display: none;
+}
+
+section.show.recipe-preparation {
+  display: block
+}
+
+section.recipe-information {
+  display: none;
+}
+
+section.show.recipe-information {
+  display: block;
+}

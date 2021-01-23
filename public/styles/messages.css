@@ -1,0 +1,67 @@
+@keyframes hidemessage {
+    to {
+        top: -6px;
+        opacity: 0;
+    }
+}
+
+.messages,
+.messages-login {
+    display: flex;
+    justify-content: center;
+    
+    position: absolute;
+    top: 7.5rem;
+    width: 100%;
+    padding: .6rem;
+    
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    font-size: 1.4rem;
+    
+    opacity: 1;
+    animation: hidemessage .8s 5s ease-out forwards;
+}
+
+.messages-login {
+    align-items: center;
+    
+    top: 2%;
+    right: 2%;
+    width: 28rem;
+    height: 8rem;
+    
+    border-radius: .4rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.error {
+    background-color: var(--message-alert);
+    padding: .6rem;
+}
+
+.success {
+    background-color: var(--message-success);
+    padding: .6rem;
+}
+
+.inputError {
+    border: .1rem solid var(--message-alert);
+}
+
+.error-field {
+    background-color: var(--message-alert);
+    position: absolute;
+    top: 25.5rem;
+    width: 38rem;
+    
+    padding: .4rem;
+    border-radius: .4rem;
+
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    font-size: 1.4rem;
+}

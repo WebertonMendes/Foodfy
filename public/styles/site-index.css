@@ -1,0 +1,41 @@
+/* Banner Chef */
+.banner {
+    background-color: #FBDFDB;
+    border-radius: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    min-height: 36.6rem;
+    padding: 6rem;
+    margin-bottom: 4rem;
+}
+  
+.banner #banner-title {
+    margin-top: 5rem;
+    margin-bottom: 1.5rem;
+}
+  
+.banner #banner-title h1 {
+    font-size: 3.2rem;
+    font-weight: 900;
+}
+  
+.banner #banner-text {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+    margin-top: .6rem;
+    width: 31.6rem;
+}
+  
+.banner #banner-img {
+    position: relative;
+}
+  
+.banner #banner-img  img {
+    position: absolute;
+    right: 3rem;
+}
+
+main h2 {
+    margin-bottom: 2rem;
+}

@@ -1,0 +1,26 @@
+{% block links %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+{% endblock %}
+
+<header id="adm">
+    <section class="menu-adm">
+        <div class="logo">
+            <img src="/assets/logo_white.png" alt="Imagem da Logo Foodfy">
+        </div>
+            
+        <div class="menu">
+            <a href="/admin/recipes">Receitas</a>
+            <a href="/admin/chefs">Chefs</a>
+            <a href="/admin/users">Usuários</a>
+        </div>
+
+        <div class="logout">
+            <form action="/login/logout" method="POST">
+                <button>
+                    <span class="material-icons">power_settings_new</span>
+                    Sair
+                </button>
+            </form>
+        </div>
+    </section>
+</header>

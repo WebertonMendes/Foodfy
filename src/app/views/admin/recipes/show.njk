@@ -1,0 +1,81 @@
+{% extends "../admin-layout.njk" %}
+
+{% block title %}
+  <title>Foodfy - {{ recipe.title }}</title>
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap">
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/admin.css">
+  <link rel="stylesheet" href="/styles/admin-recipes.css">
+  <link rel="stylesheet" href="/styles/image-gallery.css">
+{% endblock %}
+
+{% block content %}
+    <section class="top-view">
+        <h2>Receita: {{ recipe.title }}</h2>
+
+        {% if (userAdmin == true) or (loggedUser === recipeUser) %}
+            <a class="edit-link" onclick="editLink()">Editar receita</a>
+        {% endif %}  
+    </section>
+
+    <section class="gallery">
+        <div class="highlight">
+            <img src="{{ recipe.recipe_images[0] }}" alt="{{ recipe.title }}" class="view-image-recipe">
+        </div>
+
+        <div class="tumbmail">
+            {% for image in recipe.recipe_images %}
+                <img
+                    src="{{ image }}"
+                    alt="recipe.title"
+                    {% if loop.index0 == 0 %}
+                        class="active"
+                    {% endif %}
+                    onclick="ImageGallery.setImage(event)"
+                >
+            {% endfor %}
+        </div>
+    </section>
+
+    <main>
+        <div class="recipe-name">
+            <h1>{{ recipe.title }}</h1>
+            <p>por {{ recipe.chef_name }}</p>
+        </div>
+
+        <div class="details">
+            <h3>Ingredientes</h3>
+        </div>
+
+        <section class="recipe-ingredients">
+            <ul class="admin-ul">
+            {% for ingredient in recipe.ingredients %}
+                <li>- &nbsp {{ ingredient }}</li>
+            {% endfor %}
+            </ul>
+        </section>
+
+        <div class="details">
+            <h3>Modo de preparo</h3>
+        </div>
+
+        <section>
+            <ul class="admin-ul">
+            {% for recipePreparation in recipe.preparation %}
+                <li>- &nbsp {{ recipePreparation }}</li>
+            {% endfor %}
+            </ul>
+        </section>
+
+        <div class="details">
+            <h3>Informações adicionais</h3>
+        </div>
+
+        <section>
+            <p>{{ recipe.information }}</p>
+        </section>
+    </main>
+{% endblock %}

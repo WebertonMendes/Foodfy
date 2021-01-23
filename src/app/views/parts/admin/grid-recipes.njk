@@ -1,0 +1,20 @@
+<section class="grid-recipes">
+
+    {% for recipe in recipes %}
+        <section class="recipe">
+        <div class="recipe-image"
+            {% for image in recipe.recipe_images %}
+                class="recipe-image"
+                style="background: url( {{ image }} ) no-repeat center center / cover"
+            {% endfor %}>
+        </div>
+
+        <div class="recipe-info">
+            <h3>{{ recipe.title }}</h3>
+            <p>por {{ recipe.chef_name }}</p>
+            <a href="/admin/recipes/{{ recipe.recipe_id }}">Visualizar</a>
+        </div>
+        </section>
+    {% endfor %}
+
+</section>

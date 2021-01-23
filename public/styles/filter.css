@@ -1,0 +1,30 @@
+/* Filter Form */
+.form-filter {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-left: auto;
+}
+  
+.form-filter input.search {
+    border-radius: .4rem;
+    padding: 1rem;
+    outline: none;
+    border: .1rem solid var(--secondary-btn-color);
+}
+  
+.form-filter button {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: bold;
+    border-radius: .4rem;
+    padding: 1rem 1.6rem;
+  
+    transition: 400ms;
+}
+  
+.form-filter button:hover {
+    background-color: #574bb4;
+    cursor: pointer;
+}

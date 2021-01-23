@@ -1,0 +1,56 @@
+{% extends "../admin-layout.njk" %}
+
+{% block title %}
+    <title>Foodfy - Perfil de Usuário</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/admin.css">
+    <link rel="stylesheet" href="/styles/messages.css">
+    <link rel="stylesheet" href="/styles/profile.css">
+    <link rel="stylesheet" href="/styles/messages.css">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <section class="top-view">
+            <h2>Bem vindo(a), {{ user.name }}</h2>
+            <div id="save-buttom">
+                <button class="default-btn" form="update-user" type="submit">Salvar</button>
+                <input type="hidden">
+            </div>
+        </section>
+    
+        <form id="update-user" method="POST" action="/admin/profile?_method=PUT">
+            <div class="item">
+                <label for="name">Nome</label>
+                <input
+                    type="text"
+                    name="name"
+                    value="{{ user.name }}"
+                />
+            </div>
+
+            <div class="item">
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    name="email"
+                    value="{{ user.email }}"
+                    onblur="Validate.apply(this, 'isEmail')"
+                />
+            </div>
+
+            <div class="item">
+                <label for="password">Senha</label>
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Digite a senha"
+                />
+            </div>
+        </form>
+    </main>
+{% endblock %}

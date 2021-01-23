@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+
+    {% block title %}
+        <title>Foodfy</title>
+    {% endblock %}
+
+    <link rel="icon" href="/assets/favicon.png"/>
+    
+    {% block links %}{% endblock %}
+
+    {% block css %}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap">
+        <link rel="stylesheet" href="/styles/main.css">
+        <link rel="stylesheet" href="/styles/admin.css">
+    {% endblock %}
+  </head>
+  <body>
+    
+    {% include "../parts/messages.njk" %}
+
+    {% block header %}
+        <header>
+            {% if userAdmin %}
+                {% include "../parts/admin/header-admin.njk" %}
+            {% else %}
+                {% include "../parts/admin/header-user.njk" %}
+            {% endif %}
+        </header>
+    {% endblock %}
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    {% block footer %}
+      {% include "../parts/footer.njk" %}
+    {% endblock %}
+
+    {% block scripts %}
+        <script src="/js/scripts.js"></script>
+    {% endblock %}
+    
+  </body>
+</html>

@@ -1,0 +1,58 @@
+/* Users Admin Manager */
+section.list-users {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 9rem;
+    row-gap: 4.5rem;
+}
+  
+p.username {
+    font-size: 1.8rem;
+    color: var(--tertiary-color);
+    line-height: 2.8rem;
+    font-weight: 400;
+}
+
+p.email {
+    font-size: 1.4rem;
+}
+
+.footer-links {
+    margin-top: 1.2rem;
+}
+.footer-links a {
+    font-size: 1.4rem;
+    color: var(--message-alert);
+    margin-right: 1.2rem;
+    font-weight: 500;
+}
+  
+.footer-links a:first-child {
+    color: var(--primary-color);
+}
+
+/* Form add new user */
+form.add-user,
+form#add-user,
+form#update-user {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 4rem;
+    row-gap: 1.4rem;
+}
+  
+input[type="checkbox"] {
+    margin-right: .8rem;
+}
+  
+#save-buttom button:hover {
+    background-color: var(--primary-color-hover);
+}
+  
+#save-buttom button:last-child {
+    background-color: var(--secondary-btn-color);
+}
+  
+#save-buttom button:last-child:hover {
+    background-color: var(--secondary-btn-color-hover);
+}

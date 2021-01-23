@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+    <meta charset="UTF-8">
+    {% block title %}
+        <title>Foodfy</title>
+    {% endblock %}
+
+    <link rel="icon" href="/assets/favicon.png"/>
+
+    {% block css %}
+        <link rel="stylesheet" href="/styles/main.css">
+        <link rel="stylesheet" href="/styles/login.css">
+        <link rel="stylesheet" href="/styles/messages.css">
+    {% endblock %}
+    </head>
+    <body>
+
+        {% include "../parts/messages.njk" %}
+
+        <div class="container">
+            <header class="login">
+                <img src="/assets/logo_black.png" alt="Logo Foodfy">
+            </header>
+
+            <section>
+                {% block content %}
+                {% endblock %}
+            </section>
+        </div>
+
+        {% block scripts %}
+        {% endblock %}
+
+    </body>
+</html>

@@ -1,0 +1,40 @@
+{% extends "../admin-layout.njk" %}
+
+{% block title %}
+    <title>Foodfy - Usuários</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/admin.css">
+    <link rel="stylesheet" href="/styles/admin-users.css">
+    <link rel="stylesheet" href="/styles/messages.css">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <section class="top-view">
+            <h2>Gerenciar Usuários</h2>
+            <a class="default-link" href="/admin/users/create">Adicionar</a>
+        </section>
+
+        <section class="list-users">
+            {% for user in users %}
+                <div class="user">
+                    <p class="username">{{ user.name }}</p>
+                    <p class="email">{{ user.email }}</p>
+
+                    <div class="footer-links">
+                        <a href="/admin/users/{{ user.id }}/edit">Editar</a>
+                
+                        <a href="/admin/users/{{ user.id }}/delete"
+                            onclick = "return confirm ('Tem certeza de que deseja excluir o usuário?')">
+                            Remover
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+    </main>
+{% endblock %}

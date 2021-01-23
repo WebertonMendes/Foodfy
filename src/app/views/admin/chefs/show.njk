@@ -1,0 +1,41 @@
+{% extends "../admin-layout.njk" %}
+
+{% block title %}
+    <title>Foodfy - Ver Chef</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/admin.css">
+    <link rel="stylesheet" href="/styles/admin-chefs.css">
+    <link rel="stylesheet" href="/styles/admin-recipes.css">
+{% endblock %}
+
+{% block content %}
+    <section class="top-view">
+        <h3>Chef: {{ chef.name }}</h3>
+
+        {% if userAdmin == true %}
+            <a class="edit-link" onclick="editLink()">Editar chef</a>
+        {% endif %}
+    </section>
+
+    <section
+        id="chef-img"
+        style="background: url( {{ chef.path }} ) no-repeat center center / cover">
+    </section>
+    
+    <section class="chef-details">
+        <h1>{{ chef.name }}</h1>
+        <p>{{ chef.total_recipes }} receitas</p>
+    </section>
+
+    <main>
+        <section class="top-view">
+            <h2>Receitas</h2>
+        </section>
+        
+        {% include "../../parts/admin/grid-recipes.njk"%}
+    </main>
+{% endblock %}}

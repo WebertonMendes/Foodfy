@@ -1,0 +1,28 @@
+{% extends "../admin-layout.njk" %}
+
+{% block title %}
+    <title>Foodfy - Novo Chef</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/admin.css">
+    <link rel="stylesheet" href="/styles/admin-chefs.css">
+    <link rel="stylesheet" href="/styles/messages.css">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <section class="top-view">
+            <h2>Criando chef</h2>
+            <div class="save-buttom">
+                <button class="default-btn" form="add-chef" type="submit">Salvar chef</button>
+            </div>
+        </section>
+
+        <form id="add-chef" method="POST" action="/admin/chefs" enctype="multipart/form-data">
+            {% include './fields.njk' %}
+        </form>
+    </main>
+{% endblock %}

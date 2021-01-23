@@ -1,0 +1,23 @@
+{% if error %}
+    <div class="messages error">
+        {{ error }}
+    </div>
+{% endif %}
+
+{% if success %}
+    <div class="messages success">
+        {{ success }}
+    </div>
+{% endif %}
+
+{% if errorLogin %}
+    <div class="messages-login error">
+        {{ errorLogin }}
+    </div>
+{% endif %}
+
+{% if successLogin %}
+    <div class="messages-login success">
+        {{ successLogin }}
+    </div>
+{% endif %}

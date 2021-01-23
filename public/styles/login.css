@@ -1,0 +1,65 @@
+header.login {
+    display: flex;
+    justify-content: center;
+
+    margin: 4rem 0 8rem 0;
+}
+  
+h1 {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+  
+.item {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 50%;
+    text-align: left;
+}
+
+.item label {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: .8rem 0;
+}
+  
+input {
+    padding: 1.2rem;
+    border: .1rem solid #DDD;
+    border-radius: .4rem;
+    margin-bottom: 1.4rem;
+}
+  
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2.8rem auto;
+    padding: .5rem;
+    max-width: 50%;
+}
+
+.actions a {
+    font-size: 1.4rem;
+    color: var(--tertiary-font-color);
+    transition: 400ms;
+}
+
+.actions a:hover {
+    color: var(--primary-font-color);
+}
+
+.actions button {
+    background-color: var(--primary-color);
+    padding: 1.2rem 4.2rem;
+    border-radius: .4rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 400ms;
+}
+
+.actions button:hover {
+    background-color: var(--primary-color-hover);
+}

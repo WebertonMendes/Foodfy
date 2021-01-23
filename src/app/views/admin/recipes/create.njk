@@ -1,0 +1,27 @@
+{% extends "../admin-layout.njk" %}
+
+{% block title %}
+    <title>Foodfy - Nova Receita</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/admin.css">
+    <link rel="stylesheet" href="/styles/admin-recipes.css">
+    <link rel="stylesheet" href="/styles/messages.css">
+{% endblock %}
+
+{% block content %}
+    <section class="top-view">
+        <h2>Criando receita</h2>
+
+        <div class="save-buttom">
+            <button class="default-btn" form="add-recipe" type="submit">Salvar receita</button>
+        </div>
+    </section>
+    
+    <form id="add-recipe" method="POST" action="/admin/recipes" enctype="multipart/form-data">
+        {% include './fields.njk' %}
+    </form>
+{% endblock %}

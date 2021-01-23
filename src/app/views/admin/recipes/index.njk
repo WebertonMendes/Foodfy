@@ -1,0 +1,25 @@
+{% extends "../admin-layout.njk" %}
+
+{% block title %}
+  <title>Foodfy - Receitas</title>
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap">
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/admin.css">
+  <link rel="stylesheet" href="/styles/admin-recipes.css">
+{% endblock %}
+
+{% block content %}
+  <main>
+    <div class="recipes-container">
+      <section class="top-view">
+          <h2>Gerenciar receitas</h2>
+          <a class="default-link" href="/admin/recipes/create">Adicionar</a>
+      </section>
+
+      {% include "../../parts/admin/grid-recipes.njk"%}
+    </div>
+  </main>
+{% endblock %}

@@ -1,0 +1,49 @@
+body#not-found {
+    background-color: #484087;
+}
+
+.page-not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4rem;
+    height: 80vh;
+}
+
+.page-not-found svg {
+    max-width: 100vw;
+    max-height: 100vh;
+
+    position: absolute;
+    top: -8rem;
+}
+
+.page-not-found h1 {
+    font-size: 4.2rem;
+    font-weight: 900;
+    color: white;
+    /* margin-top: 32%; */
+}
+
+.button {
+    text-align: center;
+
+    /* margin-top: 4rem; */
+    z-index: 1;
+}
+
+.button a.back {
+    text-decoration: none;
+    color: #fff;
+    padding: 2rem 5rem;
+    border-radius: 5rem;
+    background-color: #b7a0fc;
+}
+
+.button a.back:hover {
+    background-color: var(--primary-color);
+    cursor: pointer;
+
+    transition: 400ms;
+}

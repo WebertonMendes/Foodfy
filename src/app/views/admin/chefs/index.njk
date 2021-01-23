@@ -1,0 +1,44 @@
+{% extends "../admin-layout.njk" %}
+
+{% block title %}
+    <title>Foodfy - Chefs</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/admin.css">
+    <link rel="stylesheet" href="/styles/admin-chefs.css">
+    <link rel="stylesheet" href="/styles/messages.css">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <section class="top-view">
+            {# {% if userAdmin == true %} #}
+                <h2>Gerenciar Chefs</h2>
+                <a class="default-link" href="/admin/chefs/create">Adicionar</a>
+            {# {% else %}
+                <h2>Listagem de Chefs</h2>
+            {% endif %} #}
+        </section>
+        
+        <section class="list-adm-chef">
+            {% for chef in chefs %}
+                <div class="chef">
+                    <section
+                        class="chef-img"
+                        style="background: url( {{ chef.image }} ) no-repeat center center / cover">
+                    </section>
+
+                    <div class="chef-description">
+                        <h3>{{ chef.name }}</h3>
+                        <div class="chef-view">
+                            <a href="/admin/chefs/{{ chef.id }}">Visualizar</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+    </main>
+{% endblock %}

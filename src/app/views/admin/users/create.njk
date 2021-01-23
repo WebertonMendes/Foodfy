@@ -1,0 +1,27 @@
+{% extends "../admin-layout.njk" %}
+
+{% block title %}
+    <title>Foodfy - Usuários</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/admin.css">
+    <link rel="stylesheet" href="/styles/admin-users.css">
+    <link rel="stylesheet" href="/styles/messages.css">
+{% endblock %}
+
+{% block content %}
+    <section class="top-view">
+        <h2>Criar Usuário</h2>
+        <div id="save-buttom">
+            <button form="add-user" class="default-btn" type="submit">Salvar</button>
+            <button form="add-user" class="default-btn" type="reset">Cancelar</button>
+        </div>
+    </section>
+  
+    <form id="add-user" method="POST" action="/admin/users">
+        {% include './fields.njk' %}
+    </form>
+{% endblock %}

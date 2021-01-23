@@ -1,0 +1,16 @@
+{% extends "./layout.njk" %}
+
+{% block content %}
+  <h1>Iniciar Sessão</h1>
+  
+  <form action="/login" method="POST">
+      {% include "./fields.njk" %}
+  </form>
+{% endblock %}
+
+{% block scripts %}
+  {% if errorLogin %}
+    <script>document.querySelector('#email').classList.add('inputError')</script>
+    <script>document.querySelector('#password').classList.add('inputError')</script>
+  {% endif %}
+{% endblock %}

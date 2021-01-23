@@ -1,0 +1,128 @@
+/* Recipes list grid */
+.grid-recipes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+}
+
+.recipe {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.recipe .recipe-image {
+    width: 17.2rem;
+    height: 8rem;
+    border-radius: 1.5rem;
+}
+
+.recipe .recipe-info h3 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--primary-font-color);
+}
+
+.recipe .recipe-info p {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    color: var(--secondary-font-color);
+    
+    margin-bottom: .5rem;
+}
+
+.recipe .recipe-info a {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.recipe .recipe-info a:hover {
+    color: var(--primary-color-hover);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* == Form upload recipe image == */
+.item #images-manager {
+    position: relative;
+}
+  
+.item #images-upload {
+    width: 12rem;
+    height: 12rem;
+    margin: .8rem 0 1.6rem 0;
+    border: .1rem solid var(--border-default-color);
+
+    position: relative;
+    overflow: hidden;
+}
+  
+.item #images-upload i {
+    width: 100%;
+    margin-top: 4rem;
+
+    color: var(--secondary-font-color);
+    text-align: center;
+    font-size: 4rem;
+}
+  
+.item #images-upload #recipe-upload {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    display: block;
+    width: 100%;
+    height: 100%;
+    
+    cursor: pointer;
+    opacity: 0;
+    overflow: hidden;
+}
+  
+.item #images-preview {
+    display: grid;
+    grid-template-columns: repeat(5, 12rem);
+    gap: .6rem;
+    align-items: center;
+    
+    margin-left: 18%;
+    
+    position: absolute;
+    top: 0;
+}
+  
+.item #images-preview img {
+    width: 12rem;
+    height: 12rem;
+    object-fit: cover;
+}
+  
+.item #images-preview .image {
+    position: relative;
+}
+  
+.item #images-preview .image i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.8);
+
+    color: var(--message-alert);
+    font-size: 4rem;
+    cursor: pointer;
+    opacity: 0;
+
+    transition: opacity 300ms;
+}
+  
+.item #images-preview .image i:hover {
+    opacity: 1;
+}

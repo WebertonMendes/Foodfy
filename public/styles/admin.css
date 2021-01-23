@@ -1,0 +1,165 @@
+* {
+  list-style: none;
+}
+
+/* Header menu administration */
+header {
+  width: 100%;
+}
+
+header#adm {
+  background-color: #111;
+  height: 8rem;
+  padding: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 3.2rem;
+  position: relative;
+}
+
+.menu-adm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.menu-adm .menu a,
+.logout form button {
+  color: white;
+  text-transform: uppercase;
+  font-size: initial;
+  
+  background: none;
+  outline: none;
+
+  transition: 200ms;
+}
+
+.menu-adm .menu a:hover {
+  color: var(--primary-color);
+}
+
+.menu-adm .menu a.active {
+  font-weight: bold;
+}
+
+.logout {
+  margin-left: 45rem;
+}
+
+.logout form button {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+.logout form button:hover {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* Header pages */
+.top-view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 2.4rem;
+}
+
+.top-view h2 {
+  font-size: 2.4rem;
+}
+
+/* Buttons and links */
+.top-view a.edit-link,
+.top-view a.default-link {
+  background: var(--primary-color);
+  padding: 1rem 2rem;
+  width: 13.9rem;
+  height: 3.7rem;
+  border-radius: .4rem;
+  
+  text-align: center;
+  color: white;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition: 400ms;
+}
+
+.top-view a:hover,
+button.default-btn:hover {
+  background: var(--secondary-color);
+  cursor: pointer;
+}
+
+button.default-btn {
+  background: var(--primary-color);
+  width: 13.9rem;
+  height: 3.7rem;
+  padding: 1rem 2.2rem;
+  border-radius: .4rem;
+
+  font-size: 1.4rem;
+  color: white;
+  font-weight: bold;
+
+  transition: 300ms;
+}
+
+button.default-btn#btn-delete {
+  background: var(--message-alert);
+}
+
+button.add-ingredient,
+button.add-preparate {
+  background: none;
+  text-align: left;
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: 2.2rem;
+
+  transition: 400ms;
+}
+
+button.add-ingredient:hover,
+button.add-preparate:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Form fields */
+input[type=text],
+input[type=email],
+input[type=password],
+textarea,
+select {
+  border: .1rem solid var(--border-default-color);
+  background-color: white;
+  width: 100%;
+  padding: 1rem;
+  margin-top: .5rem;
+  margin-bottom: 1.5rem;
+  border-radius: .4rem;
+  box-sizing: border-box;
+}
+
+textarea {
+  height: 15rem;
+  font-family: 'Roboto', sans-serif;
+  text-rendering: optimizeSpeed;
+}
+
+input[type=file],
+input[type=file]::-webkit-file-upload-button {
+    cursor: pointer; 
+}
+
+label {
+  font-weight: bold;
+  margin-top: 2.2rem;
+}

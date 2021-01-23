@@ -1,0 +1,9 @@
+{% extends "./layout.njk" %}
+
+{% block content %}
+  <h1>Nova Senha</h1>
+
+  <form action="/login/reset" method="POST">
+    {% include "./fields-reset.njk" %}
+  </form>
+{% endblock %}
