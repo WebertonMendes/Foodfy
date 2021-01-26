@@ -36,7 +36,7 @@ port: 5432,
 database: "name_db"
 ```
 
-**Para envio de emails foi utilizado o Mailtrap: https://mailtrap.io/signin**<br>
+**Para envio de emails foi utilizado o Mailtrap: https://mailtrap.io/signup**<br>
 
 **6º Passo:** Após criar a conta no Mailtrap, renomear o arquivo mailer para envio de email:
 ```sh
