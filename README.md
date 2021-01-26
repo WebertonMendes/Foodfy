@@ -1,5 +1,6 @@
 # Foodfy
 
+<br>
 #### Aplicação desenvolvida durante o curso Launchbase da <a href="https://rocketseat.com.br/" target="_blank">Rocketseat</a> (Projeto final de conclusão do curso).
 
 ### Projeto desenvolvido com:
