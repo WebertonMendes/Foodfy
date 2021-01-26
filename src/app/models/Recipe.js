@@ -55,53 +55,6 @@ module.exports = {
             console.error(err)
         }
     },
-    async allUserRecipes(id) {
-        try {
-            return await db.query(`
-                SELECT
-                recipes.id AS recipe_id,
-                recipes.title AS title,
-                recipes.ingredients AS ingredients,
-                recipes.preparation AS preparation,
-                recipes.information AS information,
-                ARRAY (
-                    SELECT
-                        SUBSTR(files.path,7) AS image
-                    FROM
-                        files
-                    LEFT JOIN recipe_files
-                        ON (files.id = recipe_files.file_id)
-                    WHERE
-                        recipe_files.recipe_id = recipes.id
-                    GROUP BY
-                        files.path,
-                        recipe_files.recipe_id
-                ) AS recipe_images,
-                users.id AS user_id,
-                users.name AS user_name,
-                chefs.id AS chef_id,
-                chefs.name AS chef_name,
-                recipes.created_at,
-                recipes.updated_at
-                FROM
-                    recipes
-                LEFT JOIN chefs
-                    ON (chefs.id = recipes.chef_id)
-                LEFT JOIN users
-                    ON (users.id = recipes.user_id)
-                WHERE
-                    recipes.user_id = ${id}
-                GROUP BY
-                    chefs.id,
-                    users.id,
-                    recipes.id
-                ORDER BY
-                    recipes.created_at DESC
-            `)
-        } catch(err) {
-            console.error(err)
-        }
-    },
     async recipesFilter(params) {
         try {
             const { filter, limit, offset } = params
@@ -153,7 +106,7 @@ module.exports = {
                     ON (chefs.id = recipes.chef_id)
                 ${filterQuery}
                 ORDER BY
-                    recipes.created_at DESC
+                    recipes.updated_at DESC
                 LIMIT $1
                 OFFSET $2
             `
@@ -253,6 +206,48 @@ module.exports = {
             console.error(err)
         }
     },
+    async findRecipeImages(id) {
+        try {
+            return await db.query(`
+                SELECT
+                    files.id,
+                    SUBSTR(files.path,7) AS path
+                FROM
+                    files
+                LEFT JOIN recipe_files
+                    ON (files.id = recipe_files.file_id)
+                WHERE
+                    recipe_files.recipe_id = ${id}
+            `)
+        } catch(err) {
+            console.error(err)
+        }
+    },
+    async findAllImagesOfRecipe(id) {
+        return await db.query(`
+            SELECT
+                recipes.id,
+                chefs.id AS chef_id,
+                UNNEST(ARRAY (SELECT recipe_files.file_id AS files_id
+                    FROM recipe_files LEFT JOIN recipes ON (recipe_files.recipe_id = recipes.id)
+                WHERE recipes.id = ${id})) AS files_id,
+                UNNEST(ARRAY (SELECT recipe_files.id AS files_id
+                    FROM recipe_files LEFT JOIN recipes ON (recipe_files.recipe_id = recipes.id)
+                WHERE recipes.id = ${id})) AS recipe_files_id,
+                UNNEST(ARRAY (SELECT COUNT(recipe_files.file_id)
+                    FROM recipe_files LEFT JOIN recipes ON (recipe_files.recipe_id = recipes.id)
+                WHERE recipes.id = ${id})) AS qtd_files
+            FROM
+                recipes
+            LEFT JOIN chefs
+                ON (chefs.id = recipes.chef_id)
+            WHERE
+                recipes.id = ${id}
+            GROUP BY
+                chefs.id,
+                recipes.id
+        `)
+    },
     async create(data, userId) {
         try {
             const query = `
@@ -314,48 +309,53 @@ module.exports = {
             console.error(err)
         }
     },
-    async findRecipeImages(id) {
-        try {
-            return await db.query(`
-                SELECT
-                    files.id,
-                    SUBSTR(files.path,7) AS path
-                FROM
-                    files
-                LEFT JOIN recipe_files
-                    ON (files.id = recipe_files.file_id)
-                WHERE
-                    recipe_files.recipe_id = ${id}
-            `)
-        } catch(err) {
-            console.error(err)
-        }
-    },
-    async findAllImagesOfRecipe(id) {
-        return await db.query(`
-            SELECT
-                recipes.id,
-                chefs.id AS chef_id,
-                UNNEST(ARRAY (SELECT recipe_files.file_id AS files_id
-                    FROM recipe_files LEFT JOIN recipes ON (recipe_files.recipe_id = recipes.id)
-                WHERE recipes.id = ${id})) AS files_id,
-                UNNEST(ARRAY (SELECT recipe_files.id AS files_id
-                    FROM recipe_files LEFT JOIN recipes ON (recipe_files.recipe_id = recipes.id)
-                WHERE recipes.id = ${id})) AS recipe_files_id,
-                UNNEST(ARRAY (SELECT COUNT(recipe_files.file_id)
-                    FROM recipe_files LEFT JOIN recipes ON (recipe_files.recipe_id = recipes.id)
-                WHERE recipes.id = ${id})) AS qtd_files
-            FROM
-                recipes
-            LEFT JOIN chefs
-                ON (chefs.id = recipes.chef_id)
-            WHERE
-                recipes.id = ${id}
-            GROUP BY
-                chefs.id,
-                recipes.id
-        `)
-    },
+    // async allUserRecipes(id) {
+    //     try {
+    //         return await db.query(`
+    //             SELECT
+    //             recipes.id AS recipe_id,
+    //             recipes.title AS title,
+    //             recipes.ingredients AS ingredients,
+    //             recipes.preparation AS preparation,
+    //             recipes.information AS information,
+    //             ARRAY (
+    //                 SELECT
+    //                     SUBSTR(files.path,7) AS image
+    //                 FROM
+    //                     files
+    //                 LEFT JOIN recipe_files
+    //                     ON (files.id = recipe_files.file_id)
+    //                 WHERE
+    //                     recipe_files.recipe_id = recipes.id
+    //                 GROUP BY
+    //                     files.path,
+    //                     recipe_files.recipe_id
+    //             ) AS recipe_images,
+    //             users.id AS user_id,
+    //             users.name AS user_name,
+    //             chefs.id AS chef_id,
+    //             chefs.name AS chef_name,
+    //             recipes.created_at,
+    //             recipes.updated_at
+    //             FROM
+    //                 recipes
+    //             LEFT JOIN chefs
+    //                 ON (chefs.id = recipes.chef_id)
+    //             LEFT JOIN users
+    //                 ON (users.id = recipes.user_id)
+    //             WHERE
+    //                 recipes.user_id = ${id}
+    //             GROUP BY
+    //                 chefs.id,
+    //                 users.id,
+    //                 recipes.id
+    //             ORDER BY
+    //                 recipes.created_at DESC
+    //         `)
+    //     } catch(err) {
+    //         console.error(err)
+    //     }
+    // },
     // async chefsSelectOptions() {
     //     try {
     //         return await db.query(`SELECT * FROM chefs`)

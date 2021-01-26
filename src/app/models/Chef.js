@@ -17,7 +17,7 @@ module.exports = {
                 GROUP BY
                     chefs.id, chefs.file_id, files.path
                 ORDER
-                    BY chefs.name
+                    BY chefs.created_at
             `)
         } catch(err) {
             console.error(err)

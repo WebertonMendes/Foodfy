@@ -6,20 +6,12 @@ const User = require('../models/User')
 module.exports = {
     async index(req, res) {
         try {
-            let results = await User.findUser(req.session.userId)
-            const userAdmin = results.rows[0].is_admin
+            const userAdmin = req.session.userIsAdmin
 
-            if(userAdmin == true) {
-                results = await Recipe.allRecipes()
-                const recipes = results.rows
+            const results = await Recipe.allRecipes()
+            const recipes = results.rows
             
-                return res.render("admin/recipes/index", { recipes, userAdmin })
-            } else {
-                results = await Recipe.allUserRecipes(req.session.userId)
-                const recipes = results.rows
-
-                return res.render("admin/recipes/index", { recipes, userAdmin })
-            }
+            return res.render("admin/recipes/index", { recipes, userAdmin })
         } catch(error) {
             console.error(error)
         }
@@ -34,8 +26,9 @@ module.exports = {
     async show(req, res) {
         try {
             let results = await User.findUser(req.session.userId)
-            const userAdmin = results.rows[0].is_admin
             const loggedUser = results.rows[0].id
+            
+            const userAdmin = req.session.userIsAdmin
             
             results = await Recipe.findRecipe(req.params.id)
             const recipe = results.rows[0]
@@ -50,11 +43,9 @@ module.exports = {
     async edit(req, res) {
         try {
             const userAdmin = req.session.userIsAdmin
-            
-            let results = await Recipe.findRecipe(req.params.id)
-            const recipe = results.rows[0]
+            const recipe = req.recipe
 
-            results = await Recipe.findRecipeImages(req.params.id)
+            let results = await Recipe.findRecipeImages(req.params.id)
             const images = results.rows
 
             results = await Chef.allChefs()

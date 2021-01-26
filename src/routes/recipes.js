@@ -13,7 +13,7 @@ routes.get('/', RecipesController.index) // Admin - Index Visualizar a Lista das
 routes.get('/create', RecipesController.create) // Admin - Criar uma Nova Receita
 routes.get('/:id', RecipesController.show) // Admin - Visualizar Detalhes da Receita
 routes.get('/:id/edit', ValidatorAccess.permissionRecipesRoutes, RecipesController.edit) // Admin - Editar uma Receita
-routes.post('/', ValidatorAccess.permissionRecipesRoutes, multer.array('recipe-image', 5), RecipesController.post) // Admin - Enviando Dados da Nova Receita
+routes.post('/', multer.array('recipe-image', 5), RecipesController.post) // Admin - Enviando Dados da Nova Receita
 routes.put('/:id', ValidatorAccess.permissionRecipesRoutes, multer.array('recipe-image', 5), RecipesController.put) // Admin - Enviando Dados Alterados na Receita
 routes.delete('/:id', ValidatorAccess.permissionRecipesRoutes, ValidatorRecipe.deleteRecipe, RecipesController.delete) // Admin - Deletando uma Receita
 

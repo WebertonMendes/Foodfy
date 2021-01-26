@@ -15,12 +15,12 @@
 {% block content %}
     <main>
         <section class="top-view">
-            {# {% if userAdmin == true %} #}
+            {% if userAdmin == true %}
                 <h2>Gerenciar Chefs</h2>
                 <a class="default-link" href="/admin/chefs/create">Adicionar</a>
-            {# {% else %}
+            {% else %}
                 <h2>Listagem de Chefs</h2>
-            {% endif %} #}
+            {% endif %}
         </section>
         
         <section class="list-adm-chef">
