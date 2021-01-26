@@ -1,6 +1,5 @@
 # Foodfy
 
-![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/main/public/assets/logo_black.png)
 <br>
 ##### Aplicação desenvolvida durante o curso Launchbase da <a href="https://rocketseat.com.br/" target="_blank">Rocketseat</a> (Projeto final de conclusão do curso).
 
