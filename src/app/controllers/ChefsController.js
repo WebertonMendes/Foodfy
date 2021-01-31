@@ -33,8 +33,9 @@ module.exports = {
                     })
                 }
             }
-
-            const results = await Chef.create(req.body)
+            const { name } = req.body
+            
+            const results = await Chef.create(name)
             const chefId = results.rows[0].id
 
             const filesPromise = req.files.map(file => File.create(file))

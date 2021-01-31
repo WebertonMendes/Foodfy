@@ -3,12 +3,13 @@ const fs = require('fs')
 const db = require('../../config/db')
 
 module.exports = {
-    async create({ filename, path }) {
+    async create({ name, path }) {
         try {
             const query = 'INSERT INTO files (name, path) VALUES ($1, $2) RETURNING id'
-            const values = [filename, path]
+            const values = [name, path]
 
-            return await db.query(query, values)
+            const results = await db.query(query, values)
+            return results.rows[0].id
         } catch(err) {
             console.error(err)
         }
@@ -56,12 +57,5 @@ module.exports = {
         } catch(err) {
             console.error(err)
         }
-    },
-    // async deleteRecipeFiles(id) {
-    //     try {
-    //         await db.query('DELETE FROM recipe_files WHERE file_id = $1', [id])
-    //     } catch(err) {
-    //         console.error(err)
-    //     }
-    // }
+    }
 }

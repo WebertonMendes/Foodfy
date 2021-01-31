@@ -1,5 +1,4 @@
 const db = require('../../config/db');
-const { hash } = require('bcryptjs')
 
 module.exports = {
     async allUsers(){
@@ -23,7 +22,7 @@ module.exports = {
             console.error(err)
         }
     },
-    async create(data, isAdmin, password) {
+    async create({ name, email, password, isAdmin }) {
         try {
             const query = `
                 INSERT INTO users (
@@ -34,12 +33,10 @@ module.exports = {
                 ) VALUES ($1, $2, $3, $4)
                 RETURNING id`
             
-            const passwordHash = await hash(password, 8)
-
             const values = [
-                data.name,
-                data.email,
-                passwordHash,
+                name,
+                email,
+                password,
                 isAdmin
             ]
 

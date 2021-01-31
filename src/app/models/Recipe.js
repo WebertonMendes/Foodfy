@@ -272,7 +272,8 @@ module.exports = {
                 date(Date.now()).iso
             ]
 
-            return await db.query(query, values)
+            const results = await db.query(query, values)
+            return results.rows[0].id
         } catch(err) {
             console.error(err)
         }
@@ -308,80 +309,5 @@ module.exports = {
         } catch(err) {
             console.error(err)
         }
-    },
-    // async allUserRecipes(id) {
-    //     try {
-    //         return await db.query(`
-    //             SELECT
-    //             recipes.id AS recipe_id,
-    //             recipes.title AS title,
-    //             recipes.ingredients AS ingredients,
-    //             recipes.preparation AS preparation,
-    //             recipes.information AS information,
-    //             ARRAY (
-    //                 SELECT
-    //                     SUBSTR(files.path,7) AS image
-    //                 FROM
-    //                     files
-    //                 LEFT JOIN recipe_files
-    //                     ON (files.id = recipe_files.file_id)
-    //                 WHERE
-    //                     recipe_files.recipe_id = recipes.id
-    //                 GROUP BY
-    //                     files.path,
-    //                     recipe_files.recipe_id
-    //             ) AS recipe_images,
-    //             users.id AS user_id,
-    //             users.name AS user_name,
-    //             chefs.id AS chef_id,
-    //             chefs.name AS chef_name,
-    //             recipes.created_at,
-    //             recipes.updated_at
-    //             FROM
-    //                 recipes
-    //             LEFT JOIN chefs
-    //                 ON (chefs.id = recipes.chef_id)
-    //             LEFT JOIN users
-    //                 ON (users.id = recipes.user_id)
-    //             WHERE
-    //                 recipes.user_id = ${id}
-    //             GROUP BY
-    //                 chefs.id,
-    //                 users.id,
-    //                 recipes.id
-    //             ORDER BY
-    //                 recipes.created_at DESC
-    //         `)
-    //     } catch(err) {
-    //         console.error(err)
-    //     }
-    // },
-    // async chefsSelectOptions() {
-    //     try {
-    //         return await db.query(`SELECT * FROM chefs`)
-    //     } catch(err) {
-    //         console.error(err)
-    //     }
-    // },
-    // async files(id) {
-    //     try {
-    //         return await db.query(`
-    //             SELECT
-    //             recipes.id AS recipe_id,
-    //             recipes.title AS recipe_title,
-    //             chefs.name AS chef_name,
-    //             files.id AS file_id,
-    //             SUBSTR(files.path,7) AS file_path
-    //             FROM recipes
-    //             LEFT JOIN chefs ON (chefs.id = recipes.chef_id)
-    //             LEFT JOIN recipe_files ON (recipes.id = recipe_files.recipe_id)
-    //             LEFT JOIN files ON (files.id = recipe_files.file_id)
-    //             WHERE recipes.id = $1
-    //             GROUP BY chefs.id, recipes.id, files.path, files.id
-    //             ORDER BY chefs.name`, [id]
-    //         )
-    //     } catch(err) {
-    //         console.error(err)
-    //     }
-    // }
+    }
 }

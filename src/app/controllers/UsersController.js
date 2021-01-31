@@ -1,7 +1,9 @@
-const User = require('../models/User')
-
 const crypto = require('crypto')
+const { hash } = require('bcryptjs')
+
 const mailer = require('../../lib/mailer')
+
+const User = require('../models/User')
 
 module.exports = {
     async index(req, res) {
@@ -23,13 +25,15 @@ module.exports = {
     async post(req, res) {
         try {
             let isAdmin = req.body.is_admin
+            const { name, email } = req.body
     
             if(isAdmin) { isAdmin = true }
             else { isAdmin = false }
             
             const password = crypto.randomBytes(12).toString('hex')
+            const hashPassword = await hash(password, 8)
 
-            await User.create(req.body, isAdmin, password)
+            await User.create({ name, email, isAdmin, password: hashPassword })
 
             await mailer.sendMail({
                 to: req.body.email,

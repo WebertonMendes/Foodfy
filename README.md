@@ -49,7 +49,12 @@ user: "user_mailtrap",
 pass: "password_mailtrap"
 ```
 
-**8º Passo:** Iniciar a aplicação:
+**8º Passo:** Adicionar dados Faker para a aplicação: (opcional)
+```sh
+$ node seed.js
+```
+
+**9º Passo:** Iniciar a aplicação:
 ```sh
 $ npm start
 ```

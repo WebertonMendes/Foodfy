@@ -101,7 +101,7 @@ module.exports = {
 
             const filesPromiseRecipe = resultFiles.map(file => {
                 const fileId = file.rows[0].id
-                File.createRecipeFiles({ file_id: fileId, recipe_id: recipeId })
+                File.createRecipeFiles({ recipe_id: recipeId, file_id: fileId })
             })
 
             await Promise.all(filesPromiseRecipe)

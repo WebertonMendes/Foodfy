@@ -56,7 +56,7 @@ module.exports = {
             console.error(err)
         }
     },
-    async create(data) {
+    async create({ name, file_id }) {
         try {
             const query = `
                 INSERT INTO chefs (
@@ -67,12 +67,13 @@ module.exports = {
                 RETURNING id`
 
             const values = [
-                data.name,
-                data.file_id,
+                name,
+                file_id,
                 date(Date.now()).iso
             ]
 
-            return await db.query(query, values)
+            const results = await db.query(query, values)
+            return results.rows[0].id
         } catch(err) {
             console.error(err)
         }
