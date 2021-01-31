@@ -37,10 +37,9 @@ database: "name_db"
 ```
 
 **6º Passo:** Dentro do diretório "public" crie o sub-diretório "images" para salvar as imagens cadastradas na aplicação.
-
 <br>
 
-**Para envio de emails foi utilizado o Mailtrap: https://mailtrap.io/signup**<br>
+**Para envio de emails foi utilizado o Mailtrap: https://mailtrap.io/signup**<br><br>
 **7º Passo:** Após criar a conta no Mailtrap, renomear o arquivo mailer para envio de email:
 ```sh
 $ mv src/lib/mailer_example.js src/lib/mailer.js
