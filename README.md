@@ -37,9 +37,7 @@ database: "name_db"
 ```
 
 **6º Passo:** Criar diretório de imagens:
-```sh
-Dentro do diretório "public" crie o sub-diretório "images" para salvar as imagens cadastradas na aplicação.
-```
+**Dentro do diretório "public" crie o sub-diretório "images" para salvar as imagens cadastradas na aplicação.**
 
 **Para envio de emails foi utilizado o Mailtrap: https://mailtrap.io/signup**<br>
 
