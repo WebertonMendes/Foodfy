@@ -36,25 +36,30 @@ port: 5432,
 database: "name_db"
 ```
 
+**6º Passo:** Criar diretório de imagens:
+```sh
+Dentro do diretório "public" crie o sub-diretório "images" para salvar as imagens cadastradas na aplicação.
+```
+
 **Para envio de emails foi utilizado o Mailtrap: https://mailtrap.io/signup**<br>
 
-**6º Passo:** Após criar a conta no Mailtrap, renomear o arquivo mailer para envio de email:
+**7º Passo:** Após criar a conta no Mailtrap, renomear o arquivo mailer para envio de email:
 ```sh
 $ mv src/lib/mailer_example.js src/lib/mailer.js
 ```
 
-**7º Passo:** Alterar o arquivo mailer.js para envio de email:
+**8º Passo:** Alterar o arquivo mailer.js para envio de email:
 ```sh
 user: "user_mailtrap",
 pass: "password_mailtrap"
 ```
 
-**8º Passo:** Adicionar dados Faker para a aplicação: (opcional)
+**9º Passo:** Adicionar dados Faker para a aplicação: (opcional)
 ```sh
 $ node seed.js
 ```
 
-**9º Passo:** Iniciar a aplicação:
+**10º Passo:** Iniciar a aplicação:
 ```sh
 $ npm start
 ```
