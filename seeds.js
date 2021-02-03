@@ -3,10 +3,7 @@ const { hash } = require('bcryptjs')
 
 const { date } = require('./src/lib/utils')
 
-const User = require('./src/app/models/User')
-const Chef = require('./src/app/models/Chef')
-const Recipe = require('./src/app/models/Recipe')
-const File = require('./src/app/models/File')
+const Seeds = require('./src/app/models/Seeds')
 
 // Faker - Create Users
 let totalUsers = 3
@@ -49,7 +46,7 @@ async function createUsers() {
         })
     }
 
-    const usersPromise = users.map(user => User.create(user))
+    const usersPromise = users.map(user => Seeds.Users(user))
     usersIds = await Promise.all(usersPromise)
 }
 
@@ -72,7 +69,7 @@ async function createChefs() {
         await downloadImage(url, path)
     }
     
-    const chefFilePromise = files.map(file => File.create(file))
+    const chefFilePromise = files.map(file => Seeds.Files(file))
     filesIds = await Promise.all(chefFilePromise)
     
     const chefs = []
@@ -84,7 +81,7 @@ async function createChefs() {
         })
     }
 
-    const chefPromise = chefs.map(chef => Chef.create(chef))
+    const chefPromise = chefs.map(chef => Seeds.Chefs(chef))
     chefsIds = await Promise.all(chefPromise)
 }
 
@@ -103,7 +100,7 @@ async function createRecipes() {
         })
     }
 
-    const recipePromise = recipes.map(recipe => Recipe.create(recipe, recipe.user_id))
+    const recipePromise = recipes.map(recipe => Seeds.Recipes(recipe, recipe.user_id))
     recipesIds = await Promise.all(recipePromise)
 
     const files = []
@@ -123,14 +120,14 @@ async function createRecipes() {
         await downloadImage(url, path)
     }
 
-    const recipeFilePromise = files.map(file => File.create(file))
+    const recipeFilePromise = files.map(file => Seeds.Files(file))
     filesIds = await Promise.all(recipeFilePromise)
 
     
     const filesPromiseRecipe = recipesIds.map(recipeId => {
 
         const fileIdPromise = filesIds.map(file => {
-            File.createRecipeFiles({ recipe_id: recipeId, file_id: file })
+            Seeds.RecipeFiles({ recipe_id: recipeId, file_id: file })
         })
 
         Promise.all(fileIdPromise)

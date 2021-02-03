@@ -3,13 +3,12 @@ const fs = require('fs')
 const db = require('../../config/db')
 
 module.exports = {
-    async create({ name, path }) {
+    async create({ filename, path }) {
         try {
             const query = 'INSERT INTO files (name, path) VALUES ($1, $2) RETURNING id'
-            const values = [name, path]
+            const values = [filename, path]
 
-            const results = await db.query(query, values)
-            return results.rows[0].id
+            return await db.query(query, values)
         } catch(err) {
             console.error(err)
         }

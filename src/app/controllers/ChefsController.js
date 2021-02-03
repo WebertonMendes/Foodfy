@@ -21,7 +21,7 @@ module.exports = {
     },
     async post(req, res) {
         try {
-            const userAdmin = req.session.userIsAdmin
+            // const userAdmin = req.session.userIsAdmin
             const keys = Object.keys(req.body)
 
             for(key of keys) {
@@ -33,15 +33,14 @@ module.exports = {
                     })
                 }
             }
-            const { name } = req.body
             
-            const results = await Chef.create(name)
+            let results = await Chef.create(req.body)
             const chefId = results.rows[0].id
 
             const filesPromise = req.files.map(file => File.create(file))
-            const resultFiles = await Promise.all(filesPromise)
+            results = await Promise.all(filesPromise)
 
-            const PromiseFilesChef = resultFiles.map(file => {
+            const PromiseFilesChef = results.map(file => {
                 const fileId = file.rows[0].id
                 File.updateChefFile({ file_id: fileId, chef_id: chefId })
             })

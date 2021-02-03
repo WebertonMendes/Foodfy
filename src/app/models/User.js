@@ -22,7 +22,7 @@ module.exports = {
             console.error(err)
         }
     },
-    async create({ name, email, password, isAdmin }) {
+    async create(data, isAdmin, hashPassword) {
         try {
             const query = `
                 INSERT INTO users (
@@ -34,9 +34,9 @@ module.exports = {
                 RETURNING id`
             
             const values = [
-                name,
-                email,
-                password,
+                data.name,
+                data.email,
+                hashPassword,
                 isAdmin
             ]
 

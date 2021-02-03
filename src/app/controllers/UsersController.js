@@ -25,7 +25,6 @@ module.exports = {
     async post(req, res) {
         try {
             let isAdmin = req.body.is_admin
-            const { name, email } = req.body
     
             if(isAdmin) { isAdmin = true }
             else { isAdmin = false }
@@ -33,7 +32,7 @@ module.exports = {
             const password = crypto.randomBytes(12).toString('hex')
             const hashPassword = await hash(password, 8)
 
-            await User.create({ name, email, isAdmin, password: hashPassword })
+            await User.create(req.body, isAdmin, hashPassword )
 
             await mailer.sendMail({
                 to: req.body.email,

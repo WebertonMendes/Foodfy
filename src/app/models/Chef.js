@@ -1,4 +1,5 @@
 const { date } = require('../../lib/utils')
+
 const db = require('../../config/db')
 
 module.exports = {
@@ -56,7 +57,7 @@ module.exports = {
             console.error(err)
         }
     },
-    async create({ name, file_id }) {
+    async create(data) {
         try {
             const query = `
                 INSERT INTO chefs (
@@ -67,13 +68,12 @@ module.exports = {
                 RETURNING id`
 
             const values = [
-                name,
-                file_id,
+                data.name,
+                data.file_id,
                 date(Date.now()).iso
             ]
 
-            const results = await db.query(query, values)
-            return results.rows[0].id
+            return await db.query(query, values)
         } catch(err) {
             console.error(err)
         }

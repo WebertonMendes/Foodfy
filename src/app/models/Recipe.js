@@ -1,4 +1,5 @@
 const { date } = require('../../lib/utils')
+
 const db = require('../../config/db')
 
 module.exports = {
@@ -272,8 +273,7 @@ module.exports = {
                 date(Date.now()).iso
             ]
 
-            const results = await db.query(query, values)
-            return results.rows[0].id
+            return await db.query(query, values)
         } catch(err) {
             console.error(err)
         }

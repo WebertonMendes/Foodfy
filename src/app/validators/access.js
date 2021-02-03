@@ -24,6 +24,11 @@ async function permissionRecipesRoutes (req, res, next) {
     const recipe = results.rows[0]
     const recipeUser = recipe.user_id
 
+    if(!recipe) return res.render('admin/recipes/index', {
+        recipes,
+        error: 'Receita não encontrada.'
+    })
+
     const findRecipes = await Recipe.allRecipes()
     const recipes = findRecipes.rows
     
