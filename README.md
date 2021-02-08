@@ -46,7 +46,7 @@ $ mv src/lib/mailer_example.js src/lib/mailer.js
 ```
 
 (Encontre os dados do Mailtrap conforme o print abaixo)
-![](https://github.com/WebertonMendes/Foodfy/blob/master/screen/Foodfy01_MailtrapData.png?raw=true)<br>
+![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/main/screen/Foodfy)<br>
 
 **8º Passo:** Alterar o arquivo mailer.js para envio de email:
 ```sh
