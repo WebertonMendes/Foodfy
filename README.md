@@ -68,7 +68,7 @@ $ npm start
 ### Telas da Aplicação
 
 > Página Home
-![](https://github.com/WebertonMendes/Foodfy/blob/master/screen/Foodfy02_Home.png?raw=true)<br>
+![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy02_Home.png)<br>
 
 > Página Sobre
 ![](https://github.com/WebertonMendes/Foodfy/blob/master/screen/Foodfy03_About.png?raw=true)<br>
