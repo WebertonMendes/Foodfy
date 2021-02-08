@@ -119,11 +119,14 @@ module.exports = {
 
             await User.update(req.body, isAdmin)
 
+            req.session.userIsAdmin = isAdmin
+
             let results = await User.findUser(req.params.id)
             const user = results.rows[0]
             
             return res.render('admin/users/edit', {
-                user: user,
+                userAdmin: req.session.userIsAdmin,
+                user,
                 success: 'Usuário atualizado com sucesso!'
             })
         } catch(error) {

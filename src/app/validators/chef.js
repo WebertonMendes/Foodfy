@@ -15,6 +15,7 @@ async function chefDelete(req, res, next) {
 
     if (chef.total_recipes > 0) {
         return res.render('admin/chefs/edit', {
+            userAdmin: req.session.userIsAdmin,
             chef,
             error: "Chefe não pôde ser excluído, exitem receitas vinculadas à ele!"
         })

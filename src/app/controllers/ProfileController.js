@@ -21,7 +21,8 @@ module.exports = {
             const results = await User.findUser(req.session.userId)
             const user = results.rows[0]
 
-            return res.render('admin/users/profile', { 
+            return res.render('admin/users/profile', {
+                userAdmin: req.session.userIsAdmin,
                 user,
                 success: 'Usuário atualizado com sucesso!'
             })
