@@ -7,6 +7,13 @@ for (item of menuItems) {
   }
 }
 
+const url = window.location.toString();
+
+if (url.indexOf("?") > 0) {
+    const clean_uri = uri.substring(0, uri.indexOf("?"));
+    window.history.replaceState({}, document.title, clean_uri);
+}
+
 function showHideIngredients() {
   const recipeIngredients = document.querySelector('.recipe-ingredients')
   const buttonShowHideIngredients = document.querySelector('#button-ingredients')

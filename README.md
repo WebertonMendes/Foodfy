@@ -67,48 +67,63 @@ $ npm start
 
 ### Telas da Aplicação
 
-> Página Home
+> Página Home<br>
 ![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy02_Home.png)<br>
 
-> Página Sobre
+> Página Sobre<br>
 ![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy03_About.png?raw=true)<br>
 
-> Página de Receitas
+> Página de Receitas<br>
 ![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy04_SiteRecipes.png?raw=true)<br>
 
-> Página de Chefs
+> Página de Chefs<br>
 ![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy05_SiteChefs.png?raw=true)<br>
 
-> Página de Login
+> Página de Login<br>
 ![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy06_Login.png?raw=true)<br>
 
-> Página de solicitação de recuperação de senha
+> Página de solicitação de recuperação de senha<br>
 ![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy07_Recover.png?raw=true)<br>
 
-> Email de recuperação de senha
+> Email de recuperação de senha<br>
 ![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy08_RecoverMail.png?raw=true)<br>
 
-> Página de recuperação de senha
+> Página de recuperação de senha<br>
 ![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy09_Recovery.png?raw=true)<br>
 
-> Email com dados de acesso para Novos Usuários
+> Email com dados de acesso para Novos Usuários<br>
 ![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy10_NewUser.png?raw=true)<br>
 
-> Página de Administração de Receitas
-![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy11_AdminRecipes.png?raw=true)<br>
+> Página de Administração de Receitas - Listagem<br>
+![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy11_AdminRecipesList.png?raw=true)<br>
 
-> Página de Administração de Chefs
-![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy12_AdminChefs.png?raw=true)<br>
+> Página de Administração de Receitas - Detalhes<br>
+![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy12_AdminRecipesShow.png?raw=true)<br>
 
-> Página de Administração de Usuários
-![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy13_AdminUsers.png?raw=true)<br>
+> Página de Administração de Receitas - Edição<br>
+![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy13_AdminRecipesEdit.png?raw=true)<br>
 
-> Página de Administração de Perfil
-![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy14_AdminProfile.png?raw=true)<br>
+> Página de Administração de Chefs - Listagem<br>
+![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy14_AdminChefs.Listpng?raw=true)<br>
 
-> Mensagens de sucesso e erro da aplicação
-![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy15_SuccessMessages.png?raw=true)<br>
-![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy16_ErrorMessages.png?raw=true)<br>
+> Página de Administração de Chefs - Detalhes<br>
+![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy15_AdminChefsShow.png?raw=true)<br>
 
-> Página de Erro 404 (Página não encontrada)
-![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy17_Error404.png?raw=true)<br>
+> Página de Administração de Chefs - Edição<br>
+![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy16_AdminChefsEdit.png?raw=true)<br>
+
+> Página de Administração de Usuários - Listagem<br>
+![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy17_AdminUsersList.png?raw=true)<br>
+
+> Página de Administração de Usuários - Edição<br>
+![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy18_AdminUsersEdit.png?raw=true)<br>
+
+> Página de Administração de Perfil<br>
+![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy19_AdminProfile.png?raw=true)<br>
+
+> Mensagens de sucesso e erro da aplicação<br>
+![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy20_SuccessMessages.png?raw=true)<br>
+![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy21_ErrorMessages.png?raw=true)<br>
+
+> Página de Erro 404 (Página não encontrada)<br>
+![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy22_Error404.png?raw=true)<br>
