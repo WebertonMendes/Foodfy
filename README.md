@@ -7,6 +7,8 @@
 <br>
 #### Instalando a aplicação:
 
+*Antes de prosseguir é necessário possuir o NodeJS e o Postgres instalados.*
+
 **1º Passo:** Download do repositório:
 ```sh
 $ git clone "https://github.com/WebertonMendes/Foodfy.git"
