@@ -67,6 +67,13 @@ $ npm start
 ```
 <br>
 
+*Usuário Administrador Padrão*<br>
+```sh
+$ Usuário: admin@foodfy.com.br
+$ Senha: admin
+```
+<br>
+
 ### Telas da Aplicação
 
 > Página Home<br>
