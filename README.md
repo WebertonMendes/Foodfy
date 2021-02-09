@@ -104,7 +104,7 @@ $ npm start
 ![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy13_AdminRecipesEdit.png?raw=true)<br>
 
 > Página de Administração de Chefs - Listagem<br>
-![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy14_AdminChefs.Listpng?raw=true)<br>
+![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy14_AdminChefsList.png?raw=true)<br>
 
 > Página de Administração de Chefs - Detalhes<br>
 ![](https://raw.githubusercontent.com/WebertonMendes/Foodfy/master/screen/Foodfy15_AdminChefsShow.png?raw=true)<br>
