@@ -58,7 +58,7 @@ pass: "password_mailtrap"
 
 **9º Passo:** Adicionar dados Faker para a aplicação: (opcional)
 ```sh
-$ node seed.js
+$ node seeds.js
 ```
 
 **10º Passo:** Iniciar a aplicação:
